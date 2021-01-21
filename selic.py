@@ -34,7 +34,7 @@ def Captura_Selic(di,df,v):
     
     print(url)
     response = requests.get(url)
-    data = simplejson.load(response)   
+    data = json.load(response)   
     
     for dados in data:
         dt = (dados['data'])
