@@ -1,5 +1,10 @@
-import urllib.request
-#import urllib2
+try: #python3
+    from urllib.request import urlopen
+except: #python2
+    from urllib2 import urlopen
+
+
+
 import requests
 import datetime
 import json 
