@@ -29,8 +29,11 @@ def ConvertStringToDate(d):
 def Captura_Selic(di,df,v):
 
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial='+di+'&dataFinal='+df
+   
+
+    
     print(url)
-    response = urlopen(url)	
+    response = requests.get(url)
     data = simplejson.load(response)   
     
     for dados in data:
