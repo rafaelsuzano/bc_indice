@@ -1,9 +1,9 @@
-#import urllib.request
-from urllib.request import urlopen
+import urllib.request
+#import urllib2
 import requests
 import datetime
 import json 
-
+from urllib.request import urlopen
 #Listas
 vl =[]
 dvl =[]
@@ -29,11 +29,13 @@ def ConvertStringToDate(d):
 def Captura_Selic(di,df,v):
 
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial='+di+'&dataFinal='+df
-    response = urlopen(url).read()
    
+
+    
     print(url)
-    data = (json.loads(response))
-        
+    response = requests.get(url)
+    #print(response.content)
+    data = (json.loads(response.content))
     
     for dados in data:
         dt = (dados['data'])
