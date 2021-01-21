@@ -30,7 +30,7 @@ def Captura_Selic(di,df,v):
 
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial='+di+'&dataFinal='+df
     print(url)
-    response = urllib.request.urlopen(url)	
+    response = urlopen(url)	
     data = simplejson.load(response)   
     
     for dados in data:
