@@ -14,14 +14,17 @@ dvl =[]
 #Calculo      
 def TotalIndice_Selic(V,VC):
     del V[0]
-  
+    
     lista = [float(i) for i in V]
+    #print(lista)
     TI= (sum(lista))
     I=(TI/100+1)
+    #print(I)
     F =(I*VC)
+    
     VF =(round(F,2))
     return VF
-    
+    #
     
 def TotalIndice_IGPDI(V,VC):
     ln=[]
@@ -47,12 +50,14 @@ def ConvertStringToDate(d):
 def Captura_Selic(di,df,v):
 
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial='+di+'&dataFinal='+df
+    print("Resultado da Correção pela Selic")
     response = urlopen(url).read()
    
     print(url)
     data = (json.loads(response))
-    #print(data)    
+    pprint.pprint(data)  
     
+   
     for dados in data:
         dt = (dados['data'])
         vlr = str(dados['valor'])
@@ -62,25 +67,20 @@ def Captura_Selic(di,df,v):
             pass
              
         else:  
-            
-           # print(dados)
-                    
             vl.append(vlr)
             dvl.append(dt) 
-    
+   #pprint.pprint(data)
     VP =TotalIndice_Selic(vl,v)
-    
     print("Valor Inicial: R$ "+ str(v),"Data Inicio:"+ str(di), "Data Final:"+str(df), "Valor Corrigido: R$" + str(VP)  )
 
 
  
 
 def Captura_IGPDI(di,df,v):
-    
+    print("Resultado da Correção pelo IGP-DI (FGV)")
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.190/dados?formato=json&dataInicial='+di+'&dataFinal='+df
     print(url)
     response = urlopen(url).read()
-    print("Resultado da Correção pelo IGP-DI (FGV)")
     data = (json.loads(response))
     pprint.pprint(data)
   
@@ -88,21 +88,19 @@ def Captura_IGPDI(di,df,v):
     for dados in data:
         dt = (dados['data'])
         vlr = str(dados['valor'])
-                    
         vl.append(vlr)
         dvl.append(dt) 
-    
-    VP =TotalIndice_IGPDI(vl,v)
- 
-    print("Valor Inicial: R$ "+ str(v),"Data Inicio:"+ str(di), "Data Final:"+str(df), "Valor Corrigido: R$" + str(VP)  )
+        VP =TotalIndice_IGPDI(vl,v)
+     print("Valor Inicial: R$ "+ str(v),"Data Inicio:"+ str(di), "Data Final:"+str(df), "Valor Corrigido: R$" + str(VP)  )
 
 
   
   
   
-di="01/01/2020"
-df="31/12/2020"
+di="01/01/2021"
+df="25/01/2021"
 v1 = 200
-#Captura_Selic(di,df,v1) 
+Captura_Selic(di,df,v1)
+print("---") 
 Captura_IGPDI(di,df,v1) 
 
