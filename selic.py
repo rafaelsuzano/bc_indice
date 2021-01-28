@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 #import urllib.request
 from urllib.request import urlopen
 import requests
@@ -27,7 +26,7 @@ def TotalIndice_Selic(V,VC):
     
     VF =(round(F,2))
     return VF
-    #
+  
     
 def TotalIndice_IGPDI(V,VC):
     ln=[]
@@ -58,7 +57,7 @@ def Captura_Selic(di,df,v):
    
     print(url)
     data = (json.loads(response))
-    pprint.pprint(data)  
+   # pprint.pprint(data)  
     
    
     for dados in data:
@@ -85,7 +84,7 @@ def Captura_IGPDI(di,df,v):
     print(url)
     response = urlopen(url).read()
     data = (json.loads(response))
-    pprint.pprint(data)
+    #pprint.pprint(data)
   
     
     for dados in data:
