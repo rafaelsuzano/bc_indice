@@ -53,7 +53,7 @@ def Captura_Selic(di,df,v):
 
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial='+di+'&dataFinal='+df
     print("Resultado da Correção pela Selic")
-    response = urlib.request.urlopen(url)
+    response = urllib.request.Request(url)
    
     print(url)
     data = (json.loads(response))
@@ -82,7 +82,7 @@ def Captura_IGPDI(di,df,v):
     print("Resultado da Correção pelo IGP-DI (FGV)")
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.190/dados?formato=json&dataInicial='+di+'&dataFinal='+df
     print(url)
-    response = urlib.request.urlopen(url)
+    response = urllib.request.Request(url)
     data = (json.loads(response))
     pprint.pprint(data)
   
