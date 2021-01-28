@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-from urllib2 import Request
+from urllib.request import urlopen
 
 import datetime
 import json 
