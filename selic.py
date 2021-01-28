@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 try:
     from urllib.request import urlopen
 except ImportError:
