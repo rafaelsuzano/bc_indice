@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
+from urllib.request import urlopen, Request
 
-try:
-    from urllib.request import urlopen
-except ImportError:
-    from urllib2 import urlopen
 from urllib.request import urlopen
 import requests
 import datetime
