@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from urllib.request import urlopen, Request
+
 
 from urllib.request import urlopen
 import requests
