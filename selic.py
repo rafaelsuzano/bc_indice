@@ -96,7 +96,7 @@ def Captura_IGPDI(di,df,v):
         vl.append(vlr)
         dvl.append(dt) 
         VP =TotalIndice_IGPDI(vl,v)
-     print("Valor Inicial: R$ "+ str(v),"Data Inicio:"+ str(di), "Data Final:"+str(df), "Valor Corrigido: R$" + str(VP)  )
+    print("Valor Inicial: R$ "+ str(v),"Data Inicio:"+ str(di), "Data Final:"+str(df), "Valor Corrigido: R$" + str(VP)  )
 
 
   
