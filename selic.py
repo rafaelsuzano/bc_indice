@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
+#import urllib.request
 from urllib.request import urlopen
-
+import requests
 import datetime
 import json 
 import pprint
@@ -53,7 +54,7 @@ def Captura_Selic(di,df,v):
 
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados?formato=json&dataInicial='+di+'&dataFinal='+df
     print("Resultado da Correção pela Selic")
-    response = urlopen(url)
+    response = urlopen(url).read()
    
     print(url)
     data = (json.loads(response))
@@ -82,7 +83,7 @@ def Captura_IGPDI(di,df,v):
     print("Resultado da Correção pelo IGP-DI (FGV)")
     url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.190/dados?formato=json&dataInicial='+di+'&dataFinal='+df
     print(url)
-    response = urlopen(url)
+    response = urlopen(url).read()
     data = (json.loads(response))
     pprint.pprint(data)
   
