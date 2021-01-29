@@ -99,8 +99,8 @@ def Captura_IGPDI(di,df,v):
   
   
   
-di="01/01/2021"
-df="25/01/2021"
+di="01/01/2000"
+df="25/01/2000"
 v1 = 200
 Captura_Selic(di,df,v1)
 print("---") 
