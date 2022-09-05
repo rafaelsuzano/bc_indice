@@ -105,4 +105,5 @@ v1 = 200
 Captura_Selic(di,df,v1)
 print("---") 
 Captura_IGPDI(di,df,v1) 
+print("teste")
 
